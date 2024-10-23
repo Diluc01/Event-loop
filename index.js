@@ -44,7 +44,6 @@ function trampoline(f, ...args) {
 console.log(trampoline(() => flattenArr([1, 2, [3, [4, 5]], 6])));
 
 // part 3
-// let paragraph = document.getElementById("paragraph");
 
 function isPrime(num) {
   for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -56,13 +55,17 @@ function isPrime(num) {
 }
 
 function printPrimeNumbers(n) {
+  const p = document.getElementById("p");
+  p.textContent = "";
+
   for (let i = 2; i <= n; i++) {
     if (isPrime(i)) {
-      console.log(i);
+      const item = document.createElement("p");
+      item.textContent = i;
+      p.appendChild(item);
     }
   }
+  window.alert("Calculation is completed");
 }
 
-// printPrimeNumbers(100);
-
-// paragraph.textContent = printPrimeNumbers(100);
+printPrimeNumbers(10000);
